@@ -54,13 +54,13 @@ mv ~/images/cover.webp content/posts/20xx-xx-xx-Titile/cover.webp
 
 Hugo article head archetype configurations:
 
-```markdown
+```
 +++
 title = '{{ replace .File.ContentBaseName "-" " " | title }}'    <!-- Automatic generation according to file name.-->
 date = {{ .Date }}    <!-- Auto get the date this article was created. -->
 lastmodified = ""    <!-- Please fill in the date yourself when editing this article. -->
 author = ""    <!-- You can write other people's names and help them publish articles. -->
-authorList = ""    <!-- Co-authors' names. E.g., author = "Mr. A, Miss B, Jhon Doe". -->
+authorList = ""    <!-- Co-authors' names. E.g., authorList = "Mr. A, Miss B, Jhon Doe". -->
 license = "CC BY-NC-SA 4.0"
 license_url = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 cover = ""    <!-- Cover image url. -->
