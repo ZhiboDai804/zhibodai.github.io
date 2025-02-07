@@ -1,0 +1,5 @@
+{{ define "main" }}
+<h1>{{ index $.Site.Data.l10n "search" }}</h1>
+<input type="text" id="search-input" placeholder="$ grep..." oninput="postsSearch()">
+<div id="search-results"></div>
+{{ end }}

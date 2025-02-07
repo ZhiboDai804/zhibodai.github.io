@@ -1,0 +1,44 @@
+{{ define "main" }}
+
+{{ if .Site.Params.defaultCover }}
+{{ $defaultCover := resources.Get "/assets/imgs/defaultCover.webp" }}
+{{ $cover := (or .Params.cover $defaultCover.RelPermalink "") }}
+{{ with $cover }}
+<section class="cover" id="cover">
+  <img src="{{ . }}" alt="Cover Image" class="cover-image" loading="lazy">
+</section>
+{{ end }}
+{{ end }}
+<h1>{{ .Title }}</h1>
+
+<div class="article-tag">
+  {{ if eq .Section "posts" }}
+  {{ $datePostMachine := .Date | time.Format "2006-01-02T15:04:05" }}
+  {{ $datePostHuman := .Date | time.Format "2006-01-02" }}
+  <time datetime="{{ $datePostMachine }}">{{ index $.Site.Data.l10n "posted_on" }} {{ $datePostHuman }}</time>
+  {{ with .Params.lastmodified }}
+  {{ $dateLastmodMachine := . | time.Format "2006-01-02T15:04:05" }}
+  {{ $dateLastmodHuman := . | time.Format "2006-01-02" }}
+  <time datetime="{{ $dateLastmodMachine }}">{{ index $.Site.Data.l10n "last_modified" }} {{ $dateLastmodHuman }}</time>
+  {{ end }}
+  <span>
+    {{ with .Params.authorList }}
+    {{ index $.Site.Data.l10n "authors" }}:&nbsp;
+    {{ else }}
+    {{ index $.Site.Data.l10n "author" }}:&nbsp;
+    {{ end }}
+    <span class="article-author">{{ or .Params.authorList .Params.author .Site.Params.author }}</span>
+  </span>
+  {{ else }}
+  {{ end }}
+</div>
+{{ .Content }}
+
+<div class="article-license">
+  {{ with .Params.license }}
+  {{ $dynamicContent := safeHTML (printf (index $.Site.Data.l10n "license") $.Params.license_url) }}
+  {{ $renderedContent := replace $dynamicContent "__license__" . }}
+  <span>{{ $renderedContent | safeHTML }}.</span>
+  {{ end }}
+</div>
+{{ end }}

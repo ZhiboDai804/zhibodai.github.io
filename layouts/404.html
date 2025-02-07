@@ -1,0 +1,9 @@
+{{ define "main" }}
+<h1>{{ index $.Site.Data.l10n "pagenotfound_title" }}</h1>
+<p>{{ index $.Site.Data.l10n "pagenotfound_desc" }}.</p>
+<p>
+    <a href="{{ .Site.Home.RelPermalink }}">
+        {{ index $.Site.Data.l10n "return_home" }}
+    </a>
+</p>
+{{ end }}

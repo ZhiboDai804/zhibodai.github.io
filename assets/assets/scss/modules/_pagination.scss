@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.pagination {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 25px auto 50px auto;
+}
+
+
+.pagination-prev,
+.pagination-next {
+  position: relative;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+.pagination-prev::before,
+.pagination-next::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: solid var(--color-primary);
+  border-width: 0 2px 2px 0;
+  transform: translateY(-50%);
+}
+
+.pagination-prev::before {
+  left: 0.75rem;
+  transform: translateY(-50%) rotate(135deg);
+}
+
+.pagination-next::after {
+  right: 0.75rem;
+  transform: translateY(-50%) rotate(-45deg);
+}
