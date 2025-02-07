@@ -42,6 +42,15 @@
 
 {{ with .Site.Params.logoImg }}
 {{ else }}
+{{ if .Site.Params.antafont }}
+{{ $ttf := resources.Get "/assets/fonts/Anta-Regular.ttf" | fingerprint }}
+<style>
+  @font-face {
+    font-family: 'Anta';
+    src: url('{{ $ttf.RelPermalink }}') format('truetype');
+  }
+</style>
+{{ else }}
 {{ $woff2 := resources.Get "/assets/fonts/Jicaleta-Regular.woff2" | fingerprint }}
 {{ $woff := resources.Get "/assets/fonts/Jicaleta-Regular.woff" | fingerprint }}
 <style>
@@ -51,6 +60,7 @@
     url('{{ $woff.RelPermalink }}') format('woff');
   }
 </style>
+{{ end }}
 {{ end }}
 
 {{ if eq .Kind "page" | and (in .CurrentSection.Path "posts") }}
@@ -64,6 +74,7 @@
   }
 </style>
 {{ end }}
+
 
 {{ with resources.Get "/assets/scss/custom.scss" }}
   {{ if eq hugo.Environment "development" }}
