@@ -15,7 +15,7 @@ Before start, make sure [Git](https://git-scm.com/) and [Hugo](https://gohugo.io
 
 Then download the zip file below for a quick start template:
 
-[QuickStartTemplate v0.1.0](https://github.com/khitezza/vortisil/releases/download/v0.1.0/quick-start-template-0.1.0.zip)
+[QuickStartTemplate v1.0.0](https://github.com/khitezza/vortisil/releases/download/v1.0.0/quick-start-template-1.0.0.zip)
 
 Unzip and enter this folder and run the ```git init``` command:
 
@@ -56,15 +56,15 @@ Hugo article head archetype configurations:
 
 ```markdown
 +++
-title = '{{ replace .File.ContentBaseName "-" " " | title }}' <!-- Automatic generation according to file name. -->
-date = {{ .Date }} <!-- Auto get the date this article was created. -->
-lastmodified = "" <!-- Please fill in the date yourself when editing this article. -->
-author = "" <!-- You can write other people's names and help them publish articles. -->
-authorList = "" <!-- Co-authors' names. E.g., author = "Mr. A, Miss B, Jhon Doe". -->
+title = '{{ replace .File.ContentBaseName "-" " " | title }}'    <!-- Automatic generation according to file name.-->
+date = {{ .Date }}    <!-- Auto get the date this article was created. -->
+lastmodified = ""    <!-- Please fill in the date yourself when editing this article. -->
+author = ""    <!-- You can write other people's names and help them publish articles. -->
+authorList = ""    <!-- Co-authors' names. E.g., author = "Mr. A, Miss B, Jhon Doe". -->
 license = "CC BY-NC-SA 4.0"
 license_url = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-cover = "" <!-- Cover image url. -->
-math = false <!-- Set true if you need to use mathematical formulas in your posts. -->
+cover = ""    <!-- Cover image url. -->
+math = false    <!-- Set true if you need to use mathematical formulas in your posts. -->
 draft = true
 +++
 ```
