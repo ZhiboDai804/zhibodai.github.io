@@ -42,6 +42,7 @@ h6 {
 h1 {
     padding: 50px 0 15px 0;
     margin: 0;
+    font-size: 1.75rem;
 }
 
 h2 {
@@ -51,7 +52,9 @@ h2 {
 .h2-home {
     color: var(--color-primary);
     cursor: pointer;
-    margin-bottom: 35px;
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+    width: fit-content;
 }
 
 a {

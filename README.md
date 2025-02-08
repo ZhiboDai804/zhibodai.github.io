@@ -15,7 +15,7 @@ Before start, make sure [Git](https://git-scm.com/) and [Hugo](https://gohugo.io
 
 Then download the zip file below for a quick start template:
 
-[QuickStartTemplate v1.0.1](https://github.com/khitezza/vortisil/releases/download/v1.0.1/quick-start-template-1.0.1.zip)
+[QuickStartTemplate v1.0.2](https://github.com/khitezza/vortisil/releases/download/v1.0.2/quick-start-template-1.0.2.zip)
 
 Unzip and enter this folder and run the ```git init``` command:
 

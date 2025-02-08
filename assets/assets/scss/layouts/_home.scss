@@ -13,6 +13,7 @@
     &-item {
         display: flex;
         flex-direction: row;
+        margin: 5px 0;
     }
 
     &-date {
@@ -36,7 +37,7 @@
 
 .works {
 
-    margin-bottom:35px;
+    margin-bottom: 35px;
 
     &-list {
         display: flex;
@@ -48,7 +49,7 @@
             font-weight: bold;
         }
 
-        .works-desc{
+        .works-desc {
             opacity: 0.7;
         }
 
