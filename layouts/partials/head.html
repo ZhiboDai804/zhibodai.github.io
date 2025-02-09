@@ -33,6 +33,30 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/imgs/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/imgs/apple-touch-icon.png">
 
+{{ with resources.Get "/assets/scss/custom.scss" }}
+  {{ if eq hugo.Environment "development" }}
+    {{ with . | toCSS | minify }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{ end }}
+  {{ else }}
+    {{ with . | toCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ with resources.Get "/assets/scss/main.scss" }}
+  {{ if eq hugo.Environment "development" }}
+    {{ with . | toCSS | minify }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{ end }}
+  {{ else }}
+    {{ with . | toCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{ end }}
+  {{ end }}
+{{ end }}
+
 <script>
   (function () {
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -73,31 +97,6 @@
     url('{{ $woff.RelPermalink }}') format('woff');
   }
 </style>
-{{ end }}
-
-
-{{ with resources.Get "/assets/scss/custom.scss" }}
-  {{ if eq hugo.Environment "development" }}
-    {{ with . | toCSS | minify }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}">
-    {{ end }}
-  {{ else }}
-    {{ with . | toCSS | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-    {{ end }}
-  {{ end }}
-{{ end }}
-
-{{ with resources.Get "/assets/scss/main.scss" }}
-  {{ if eq hugo.Environment "development" }}
-    {{ with . | toCSS | minify }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}">
-    {{ end }}
-  {{ else }}
-    {{ with . | toCSS | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-    {{ end }}
-  {{ end }}
 {{ end }}
 
 {{ with resources.Get "/assets/js/main.js" }}
