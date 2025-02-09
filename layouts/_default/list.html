@@ -7,7 +7,7 @@
   <h1>{{ index $.Site.Data.l10n "archives" }} ({{ len $pages }})</h1>
 
   {{ range $paginator.PageGroups }}
-  <h2># {{ .Key }}</h2>
+  <h2>{{ .Key }}</h2>
   <div class="posts-list">
     {{ range .Pages }}
     <div class="posts-item">
