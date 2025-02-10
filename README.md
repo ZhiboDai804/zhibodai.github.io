@@ -71,15 +71,18 @@ draft = true
 
 ## Custom
 
-Create ```hugo.toml``` and modify it:
+Site config ```hugo.toml```:
 
 ```toml
 baseURL = "https://example.com"
-languageCode = "en"
-title = "Example Site"
+languageCode = "en" # <html lang> ==> data/l10n.toml
+title = "Example Site" # Website Title
 copyright = "Name" # Footer copyright.
-theme = "vortisil"
-pagination.pagerSize = 10
+#theme = "vortisil"
+pagination.pagerSize = 15
+hasCJKLanguage = true
+enableEmoji = true
+disableKinds = ["taxonomy","term"] # DO NOT MODIFY
 
 [params]
     author = "Name" # Author name of the article.
@@ -91,6 +94,36 @@ pagination.pagerSize = 10
 
 [params.meta]
     description = "A fast, minimal, and restrained Hugo theme." # Site description
+  
+[[menus.main]]
+    identifier = "home"
+    url = "/"
+    weight = 1
+
+[[menus.main]]
+    identifier = "about"
+    url = "/about"
+    weight = 2
+
+[[menus.main]]
+    identifier = "archives"
+    url = "/posts"
+    weight = 3
+
+[module]
+    [module.hugoVersion]
+        extended = true
+        min = "0.116.0"
+
+[markup]
+    [markup.highlight]
+        style = "evergarden"
+        tabWidth = 4
+        codeFences = true
+        guessSyntax = true
+
+[outputs]
+    home = ["HTML", "JSON"]
 ```
 
 The Position of the logo/hero/default cover and favicon:
