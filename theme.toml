@@ -5,7 +5,7 @@ description = 'A fast, minimal, and restrained Hugo theme...'
 homepage = 'https://github.com/khitezza/vortisil'
 demosite = "https://khitezza.com"
 tags = ["blog", "responsive", "clean", "light", "dark", "personal"]
-features = ["darkmode", "responsive", "search"]
+features = ["blog", "darkmode", "responsive", "search"]
 min_version = "0.142.0"
 
 [author]
