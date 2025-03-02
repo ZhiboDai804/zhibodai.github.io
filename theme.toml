@@ -1,12 +1,13 @@
 name = 'Vortisil'
 license = 'GPL-3.0-or-later'
 licenselink = 'https://github.com/khitezza/vortisil/LICENSE'
-description = 'A fast, minimal, and restrained Hugo theme.'
+description = 'A fast, minimal, and restrained Hugo theme...'
 homepage = 'https://github.com/khitezza/vortisil'
-tags = ['simple', 'clean']
-features = ['blog', 'novels']
+demosite = "https://khitezza.com"
+tags = ["blog", "responsive", "clean", "light", "dark", "personal"]
+features = ["darkmode", "responsive", "search"]
 min_version = "0.142.0"
 
 [author]
-  name = 'Hao Wu'
-  homepage = 'https://khitezza.com'
+name = 'Hao Wu'
+homepage = 'https://khitezza.com'
