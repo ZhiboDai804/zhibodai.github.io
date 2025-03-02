@@ -2,7 +2,7 @@
     <nav class="navbar-container">
         <div class="navbar-top" id="top">
             <div class="navbar-logo">
-                <a href="{{ .Site.BaseURL }}" class="logo-text" {{ if .Site.Params.antafont }}style="font-family: Anta;"{{ else }}style="font-family: jicaleta;"{{ end }}>
+                <a href="{{ .Site.BaseURL }}" class="logo-text" style="font-family: jicaleta;">
                     {{ if .Site.Params.logoImg }}
                     {{ $brand := resources.Get "/assets/imgs/logo.png" }}
                     <img src="{{ $brand.RelPermalink }}" alt="Logo Image" class="logo-image {{ if .Site.Params.logoInvert }}logo-invert{{ end }}" loading="lazy">

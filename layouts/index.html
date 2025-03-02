@@ -7,7 +7,7 @@
 
 <section class="posts" id="posts">
 
-    <h2 class="h2-home"><a href="/posts">{{ index $.Site.Data.l10n "latest_blogs" }}</a></h2>
+    <h2 class="h2-home"><a href="/posts">{{ index $.Site.Data.l10n "latest_posts" }}</a></h2>
 
     <div class="posts-list">
         {{ $posts_pages := where site.RegularPages "Type" "posts" }}
@@ -16,7 +16,7 @@
             <div class="posts-date">{{ .Date | dateFormat "2006-01-02" }}</div>
             <div class="posts-title">
                 <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                {{ $summary := .Content | plainify | truncate 70 "..." }}
+                {{ $summary := .Content | plainify | truncate 200 "..." }}
                 <p>{{ $summary }}</p>
             </div>
         </div>
@@ -29,11 +29,10 @@
     <div class="works-list">
         {{ range .Site.Data.works.works }}
         <div class="works-item">
-            <a href="{{ .url }}" target="_blank" rel="noopener">
-                <span>{{ .name }}</span>
-            </a>
-            <br>
-            <span class="works-desc">~ {{ .desc }}</span>
+            <div class="works-title">
+                <a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>
+                <p class="works-desc">~ {{ .desc }}</p>
+            </div>
         </div>
         {{ end }}
     </div>

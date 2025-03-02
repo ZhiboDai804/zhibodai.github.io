@@ -14,7 +14,6 @@ disableKinds = ["taxonomy","term"] # DO NOT MODIFY
     logoInvert = true # If the image logo needs to be turned on Image Colour Inversion.
     defaultCover = true # true: show he default cover, false: never show the default cover.
     math = true
-    antafont = false
 
 [params.meta]
     description = "A fast, minimal, and restrained Hugo theme." # Site description

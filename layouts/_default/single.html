@@ -1,13 +1,9 @@
 {{ define "main" }}
 
-{{ if .Site.Params.defaultCover }}
-{{ $defaultCover := resources.Get "/assets/imgs/defaultCover.webp" }}
-{{ $cover := (or .Params.cover $defaultCover.RelPermalink "") }}
-{{ with $cover }}
+{{ with .Params.cover }}
 <section class="cover" id="cover">
   <img src="{{ . }}" alt="Cover Image" class="cover-image" loading="lazy">
 </section>
-{{ end }}
 {{ end }}
 <h1>{{ .Title }}</h1>
 

@@ -1,4 +1,4 @@
-![Vortisil](/images/screenshots.png)
+![Vortisil](/images/banner.png)
 
 <h4 align=center><a href="https://khitezza.com" rel="nofollow">[ Demo Site ]</a></h4>
 
@@ -13,11 +13,9 @@
 
 Before start, make sure [Git](https://git-scm.com/) and [Hugo](https://gohugo.io/) are installed.
 
-Then download the zip file below for a quick start template:
 
-[QuickStartTemplate v1.0.2](https://github.com/khitezza/vortisil/releases/download/v1.0.2/quick-start-template-1.0.2.zip)
 
-Unzip and enter this folder and run the ```git init``` command:
+Create and enter ```Website``` folder and run the ```git init``` command:
 
 ```bash
 git init
@@ -56,16 +54,16 @@ Hugo article head archetype configurations:
 
 ```
 +++
-title = '{{ replace .File.ContentBaseName "-" " " | title }}'    <!-- Automatic generation according to file name.-->
-date = {{ .Date }}    <!-- Auto get the date this article was created. -->
+title = 'Example Post Title'    <!-- Automatic generation according to file name.-->
+date = 2025-02-09T12:37:00+08:00    <!-- Auto get the date this article was created. -->
 lastmodified = ""    <!-- Please fill in the date yourself when editing this article. -->
-author = ""    <!-- You can write other people's names and help them publish articles. -->
-authorList = ""    <!-- Co-authors' names. E.g., authorList = "Mr. A, Miss B, Jhon Doe". -->
+author = "Your Name"    <!-- You can write other people's names and help them publish articles. -->
+authorList = "Name of You and Your Team Members"    <!-- Co-authors' names. -->
 license = "CC BY-NC-SA 4.0"
 license_url = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 cover = ""    <!-- Cover image url. -->
 math = false    <!-- Set true if you need to use mathematical formulas in your posts. -->
-draft = true
+draft = false
 +++
 ```
 
@@ -90,7 +88,6 @@ disableKinds = ["taxonomy","term"] # DO NOT MODIFY
     logoInvert = true # If the image logo needs to be turned on Image Colour Inversion.
     defaultCover = true # true: show he default cover, false: never show the default cover.
     math = true
-    antafont = false
 
 [params.meta]
     description = "A fast, minimal, and restrained Hugo theme." # Site description
@@ -126,12 +123,11 @@ disableKinds = ["taxonomy","term"] # DO NOT MODIFY
     home = ["HTML", "JSON"]
 ```
 
-The Position of the logo/hero/default cover and favicon:
+The Position of the logo,hero and favicon:
 
 ```bash
 assets/assets/imgs/logo.png
 assets/assets/imgs/hero.webp
-assets/assets/imgs/defaultCover.webp
 
 static/assets/imgs/favicon.ico
 static/assets/imgs/favicon-16x16.png
@@ -163,7 +159,7 @@ about = 'About'
 archives = 'Archives'
 search = 'Search'
 blogs = 'Blogs'
-latest_blogs = 'Latest Blogs'
+latest_posts = 'Latest Posts'
 works = 'Works'
 authors = 'Authors'
 author = 'Author'
@@ -270,7 +266,7 @@ jobs:
 If you have a domain, add ``CNAME`` and configure the domain dns settings.
 
 ```bash
-echo "example.com" >> CNAME
+echo "yourdomain.com" >> CNAME
 ```
 
 Push to git platforms like Github.
