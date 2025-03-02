@@ -1,5 +1,6 @@
 public
 resources
+run_dev.sh
 *.exe
 *.exe~
 *.dll

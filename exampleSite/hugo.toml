@@ -12,7 +12,6 @@ disableKinds = ["taxonomy","term"] # DO NOT MODIFY
     author = "Name" # Author name of the article.
     logoImg = true # If false, the site title will display.
     logoInvert = true # If the image logo needs to be turned on Image Colour Inversion.
-    defaultCover = true # true: show he default cover, false: never show the default cover.
     math = true
 
 [params.meta]
