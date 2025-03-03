@@ -1,7 +1,7 @@
 name = 'Vortisil'
 license = 'GPL-3.0-or-later'
 licenselink = 'https://github.com/khitezza/vortisil/LICENSE'
-description = 'A fast, minimal, and restrained Hugo theme...'
+description = 'A fast, minimal and restrained Hugo theme...'
 homepage = 'https://github.com/khitezza/vortisil'
 demosite = "https://khitezza.com"
 tags = ["blog", "responsive", "clean", "light", "dark", "personal"]

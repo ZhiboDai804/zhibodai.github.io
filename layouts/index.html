@@ -7,7 +7,7 @@
 
 <section class="posts" id="posts">
 
-    <h2 class="h2-home"><a href="/posts">{{ index $.Site.Data.l10n "latest_posts" }}</a></h2>
+    <h2 class="h2-home"><a href="/posts">~ {{ index $.Site.Data.l10n "latest_posts" }}</a></h2>
 
     <div class="posts-list">
         {{ $posts_pages := where site.RegularPages "Type" "posts" }}
@@ -25,13 +25,13 @@
 </section>
 
 <section class="works" id="works">
-    <h2 class="h2-home"><a href="#works">{{ index $.Site.Data.l10n "works" }}</a></h2>
+    <h2 class="h2-home"><a href="#works">~ {{ index $.Site.Data.l10n "works" }}</a></h2>
     <div class="works-list">
         {{ range .Site.Data.works.works }}
         <div class="works-item">
             <div class="works-title">
                 <a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>
-                <p class="works-desc">~ {{ .desc }}</p>
+                <p class="works-desc">{{ .desc }}</p>
             </div>
         </div>
         {{ end }}

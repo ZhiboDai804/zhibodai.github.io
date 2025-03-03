@@ -2,7 +2,7 @@ baseURL = "https://example.com"
 languageCode = "en" # <html lang> ==> data/l10n.toml
 title = "Example Site" # Website Title
 copyright = "Name" # Footer copyright.
-#theme = "vortisil"
+theme = "vortisil"
 pagination.pagerSize = 15
 hasCJKLanguage = true
 enableEmoji = true

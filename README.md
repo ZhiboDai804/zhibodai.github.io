@@ -90,7 +90,7 @@ disableKinds = ["taxonomy","term"] # DO NOT MODIFY
     math = true
 
 [params.meta]
-    description = "A fast, minimal, and restrained Hugo theme." # Site description
+    description = "A fast, minimal and restrained Hugo theme." # Site description
   
 [[menus.main]]
     identifier = "home"

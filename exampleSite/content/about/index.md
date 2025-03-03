@@ -2,7 +2,7 @@
 layout= "about"
 +++
 
-Hi, this is Vortisil. A fast, minimal, and restrained Hugo theme.
+Hi, this is Vortisil. A fast, minimal and restrained Hugo theme.
 
 ### Social Links
 
