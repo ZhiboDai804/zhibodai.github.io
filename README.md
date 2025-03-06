@@ -57,8 +57,7 @@ Hugo article head archetype configurations:
 title = 'Example Post Title'    <!-- Automatic generation according to file name.-->
 date = 2025-02-09T12:37:00+08:00    <!-- Auto get the date this article was created. -->
 lastmodified = ""    <!-- Please fill in the date yourself when editing this article. -->
-author = "Your Name"    <!-- You can write other people's names and help them publish articles. -->
-authorList = "Name of You and Your Team Members"    <!-- Co-authors' names. -->
+author = "Single Name or You, Name1, Name2"
 license = "CC BY-NC-SA 4.0"
 license_url = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 cover = ""    <!-- Cover image url. -->
@@ -77,7 +76,7 @@ languageCode = "en" # <html lang> ==> data/l10n.toml
 title = "Example Site" # Website Title
 copyright = "Name" # Footer copyright.
 #theme = "vortisil"
-pagination.pagerSize = 15
+pagination.pagerSize = 9
 hasCJKLanguage = true
 enableEmoji = true
 disableKinds = ["taxonomy","term"] # DO NOT MODIFY
@@ -86,7 +85,6 @@ disableKinds = ["taxonomy","term"] # DO NOT MODIFY
     author = "Name" # Author name of the article.
     logoImg = true # If false, the site title will display.
     logoInvert = true # If the image logo needs to be turned on Image Colour Inversion.
-    defaultCover = true # true: show he default cover, false: never show the default cover.
     math = true
 
 [params.meta]
@@ -161,8 +159,7 @@ search = 'Search'
 blogs = 'Blogs'
 latest_posts = 'Latest Posts'
 works = 'Works'
-authors = 'Authors'
-author = 'Author'
+by = 'by'
 posted_on = 'Posted on'
 last_modified = 'Last modified'
 pagenotfound_title = 'Page Not Found'
@@ -173,7 +170,7 @@ powered_by = 'Powered by <a href="https://gohugo.io">Hugo</a> & <a href="https:/
 license = 'This article is licensed under <a href="%s" target="_blank" rel="license noopener noreferrer">__license__</a>'
 ```
 
-Use ```data/works.toml``` to display works on the homepage.
+Use ```data/works.toml``` to display works/projects on the homepage.
 
 ```toml
 [[works]]
