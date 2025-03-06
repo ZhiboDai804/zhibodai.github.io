@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+.article {
+    &-tag {
+        font-size: 14px;
+        opacity: 0.7;
+        display: flex;
+        line-height: 20px;
+        margin: 0 0 30px 0;
+    }
+
+    &-license {
+        border-top: 1px solid var(--color-primary);
+        font-size: 0.86rem;
+        margin-top: 4rem;
+        padding:1rem 0;
+
+        &::before {
+            content: "!";
+            margin-right: 5px;
+            font-weight: bold;
+            color: #F00;
+        }
+    }
+}

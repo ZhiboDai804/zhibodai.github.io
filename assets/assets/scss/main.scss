@@ -1,14 +1,21 @@
 @charset "UTF-8";
 
 @import 'base/variables';
-
-@import 'layouts/article';
-@import 'layouts/home';
-
-@import 'modules/navbar';
-@import 'modules/search';
+@import 'modules/header';
 @import 'modules/pagination';
 @import 'modules/footer';
+@import 'pages/article';
+@import 'pages/home';
+@import 'pages/search';
+
+html {
+    text-rendering: geometricPrecision;
+
+    font: {
+        family: $font-text;
+        size: 1rem;
+    }
+}
 
 body {
     display: flex;
@@ -16,74 +23,30 @@ body {
     max-width: 46rem;
     min-height: 100vh;
     margin: 0 auto;
-    padding: 0 2rem;
-    font-family: $font-text;
-    font-size: 0.9rem;
+    padding: 0 1rem;
     line-height: 1.725;
-    text-rendering: geometricPrecision;
     background-color: var(--color-background);
     color: var(--color-text);
     transition: background-color 0.3s, color 0.3s;
-
-    @media (max-width:720px) {
-        padding: 0 1rem;
-    }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: $font-text;
+header {
+    display: block;
 }
 
 h1 {
-    padding: 50px 0 15px 0;
+    padding: 3.5rem 0 1rem 0;
     margin: 0;
-    font-size: 1.46rem;
+    font-size: 1.65rem;
 }
 
 h2 {
-    margin: 35px 0 15px 0;
-    font-size: 1.36rem;
+    font-size: 1.35rem;
 
     &::before {
-        content: "#";
-        font-weight: 700;
+        content: "# ";
         color: var(--color-primary);
-        padding-right: 5px;
     }
-}
-
-.h2-home {
-    color: var(--color-primary);
-    cursor: pointer;
-    margin-bottom: 12px;
-    font-size: 1.28rem;
-    width: fit-content;
-
-    &::before {
-        content: "";
-        padding: 0;
-    }
-}
-
-h3 {
-    font-size: 1.26rem;
-}
-
-h4 {
-    font-size: 1.10rem;
-}
-
-h5 {
-    font-size: 1.0rem;
-}
-
-h6 {
-    font-size: 0.86rem;
 }
 
 
@@ -102,8 +65,6 @@ a {
 }
 
 p {
-    font-family: $font-text;
-
     &>img {
         border-radius: 5px;
         display: flex;
@@ -156,6 +117,27 @@ blockquote {
     opacity: 0.7;
 }
 
+.highlight {
+    background-color: #252b2e;
+    overflow: auto;
+    border-radius: 5px;
+
+    pre {
+        margin: 10px;
+
+        code {
+            &>span {
+                &::after {
+                    content: "";
+                    padding-right: 15px;
+                }
+
+                margin: 0 10px;
+            }
+        }
+    }
+}
+
 .hero,
 .cover {
     width: 100%;
@@ -169,6 +151,22 @@ blockquote {
         border-radius: 5px;
         object-fit: cover;
         object-position: center;
+    }
+}
+
+.section-title {
+    width: fit-content;
+    color: var(--color-primary);
+    cursor: pointer;
+    margin: 3rem 0 .3rem 0;
+    font: {
+        size: 1.35rem;
+        weight: bold;
+    }
+
+
+    &::before {
+        content: "~ ";
     }
 }
 

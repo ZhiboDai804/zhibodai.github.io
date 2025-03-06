@@ -5,6 +5,7 @@
   <img src="{{ . }}" alt="Cover Image" class="cover-image" loading="lazy">
 </section>
 {{ end }}
+
 <h1>{{ .Title }}</h1>
 
 <div class="article-tag">
@@ -18,16 +19,13 @@
   <time datetime="{{ $dateLastmodMachine }}">{{ index $.Site.Data.l10n "last_modified" }} {{ $dateLastmodHuman }}</time>
   {{ end }}
   <span>
-    {{ with .Params.authorList }}
-    {{ index $.Site.Data.l10n "authors" }}:&nbsp;
-    {{ else }}
-    {{ index $.Site.Data.l10n "author" }}:&nbsp;
-    {{ end }}
-    <span class="article-author">{{ or .Params.authorList .Params.author .Site.Params.author }}</span>
+    &nbsp;,&nbsp;{{ index $.Site.Data.l10n "by" }}&nbsp;
+    <span class="article-author">{{ or .Params.author .Site.Params.author }}</span>
   </span>
   {{ else }}
   {{ end }}
 </div>
+
 {{ .Content }}
 
 <div class="article-license">

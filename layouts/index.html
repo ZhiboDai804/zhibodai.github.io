@@ -1,18 +1,20 @@
 {{ define "main" }}
 
 <section class="hero" id="hero">
+
     {{ $hero := resources.GetMatch "/assets/imgs/hero.*" }}
     {{ $heroResize := $hero.Resize "800x webp"}}
     <img src="{{ $heroResize.RelPermalink }}" alt="Hero Image" class="hero-image" loading="lazy">
+
 </section>
 
 <section class="posts" id="posts">
 
-    <h2 class="h2-home"><a href="/posts">~ {{ index $.Site.Data.l10n "posts" }}</a></h2>
+    <div class="section-title">{{ index $.Site.Data.l10n "posts" }}</div>
 
     <div class="posts-list">
         {{ $posts_pages := where site.RegularPages "Type" "posts" }}
-        {{ range first 5 $posts_pages }}
+        {{ range first 3 $posts_pages }}
         <div class="posts-item">
             <div class="posts-date">{{ .Date | dateFormat "2006-01-02" }}</div>
             <div class="posts-title">
@@ -23,20 +25,24 @@
         </div>
         {{ end }}
     </div>
+
 </section>
 
 <section class="works" id="works">
-    <h2 class="h2-home">~ {{ index $.Site.Data.l10n "works" }}</h2>
+
+    <div class="section-title">{{ index $.Site.Data.l10n "works" }}</div>
+
     <div class="works-list">
         {{ range .Site.Data.works.works }}
         <div class="works-item">
             <div class="works-title">
                 <a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>
-                <p class="works-desc">{{ .desc }}</p>
+                <p>{{ .desc }}</p>
             </div>
         </div>
         {{ end }}
     </div>
+
 </section>
 
 {{ end }}

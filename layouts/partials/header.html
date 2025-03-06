@@ -1,5 +1,5 @@
-<header class="navbar">
-    <nav class="navbar-container">
+<header>
+    <nav class="navbar">
         <div class="navbar-top" id="top">
             <div class="navbar-logo">
                 <a href="{{ .Site.BaseURL }}" class="logo-text" style="font-family: jicaleta;">
@@ -18,11 +18,11 @@
             </div>
         </div>
         <div class="navbar-menu" id="navbar-menu">
-            <div class="navbar-links">
+            <div class="navbar-link-list">
                 {{ range .Site.Menus.main }}
-                <a href="{{ .URL }}" class="navbar-link">{{ index $.Site.Data.l10n .Identifier }}</a>
+                <a href="{{ .URL }}" class="navbar-link-item">{{ index $.Site.Data.l10n .Identifier }}</a>
                 {{ end }}
-                <a href="/search" class="navbar-link">{{ index $.Site.Data.l10n "search" }}</a>
+                <a href="/search" class="navbar-link-item">{{ index $.Site.Data.l10n "search" }}</a>
             </div>
             <div class="theme-toggle">
                 <div id="theme-toggle-btn">陰</div>

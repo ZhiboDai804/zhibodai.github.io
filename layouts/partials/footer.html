@@ -1,6 +1,4 @@
-<footer>
-    <div class="footer">
-        <span>&copy; {{ now.Year }} {{ site.Copyright}}. {{ index $.Site.Data.l10n "all_rights_reserved" }}.</span>
-        <span>{{ index $.Site.Data.l10n "powered_by" | safeHTML }}.</span>
-    </div>
+<footer class="footer">
+    <span>&copy; {{ now.Year }} {{ site.Copyright}}. {{ index $.Site.Data.l10n "all_rights_reserved" }}.</span>
+    <span>{{ index $.Site.Data.l10n "powered_by" | safeHTML }}.</span>
 </footer>

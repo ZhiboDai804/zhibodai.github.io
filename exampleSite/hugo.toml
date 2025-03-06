@@ -3,7 +3,7 @@ languageCode = "en" # <html lang> ==> data/l10n.toml
 title = "Example Site" # Website Title
 copyright = "Name" # Footer copyright.
 theme = "vortisil"
-pagination.pagerSize = 15
+pagination.pagerSize = 9
 hasCJKLanguage = true
 enableEmoji = true
 disableKinds = ["taxonomy","term"] # DO NOT MODIFY
