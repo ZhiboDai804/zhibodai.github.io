@@ -19,7 +19,7 @@
             <div class="posts-date">{{ .Date | dateFormat "2006-01-02" }}</div>
             <div class="posts-title">
                 <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                {{ $summary := .Content | plainify | truncate 200 "..." }}
+                {{ $summary := .Content | plainify | truncate 120 "..." }}
                 <p>{{ $summary }}</p>
             </div>
         </div>
