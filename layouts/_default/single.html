@@ -12,16 +12,13 @@
   {{ if eq .Section "posts" }}
   {{ $datePostMachine := .Date | time.Format "2006-01-02T15:04:05" }}
   {{ $datePostHuman := .Date | time.Format "2006-01-02" }}
-  <time datetime="{{ $datePostMachine }}">{{ index $.Site.Data.l10n "posted_on" }} {{ $datePostHuman }}</time>
+  <time datetime="{{ $datePostMachine }}">{{ index $.Site.Data.l10n "posted_on" }} {{ $datePostHuman }}&nbsp;,&nbsp;</time>
   {{ with .Params.lastmodified }}
   {{ $dateLastmodMachine := . | time.Format "2006-01-02T15:04:05" }}
   {{ $dateLastmodHuman := . | time.Format "2006-01-02" }}
-  <time datetime="{{ $dateLastmodMachine }}">{{ index $.Site.Data.l10n "last_modified" }} {{ $dateLastmodHuman }}</time>
+  <time datetime="{{ $dateLastmodMachine }}">{{ index $.Site.Data.l10n "last_modified" }} {{ $dateLastmodHuman }}&nbsp;,&nbsp;</time>
   {{ end }}
-  <span>
-    &nbsp;,&nbsp;{{ index $.Site.Data.l10n "by" }}&nbsp;
-    <span class="article-author">{{ or .Params.author .Site.Params.author }}</span>
-  </span>
+  <span class="article-author">{{ index $.Site.Data.l10n "by" }}&nbsp;{{ or .Params.author .Site.Params.author }}</span>
   {{ else }}
   {{ end }}
 </div>

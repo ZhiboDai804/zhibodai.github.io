@@ -7,13 +7,17 @@
         display: flex;
         line-height: 20px;
         margin: 0 0 30px 0;
+
+        @media (max-width: 720px) {
+            flex-direction: column;
+        }
     }
 
     &-license {
         border-top: 1px solid var(--color-primary);
         font-size: 0.86rem;
         margin-top: 4rem;
-        padding:1rem 0;
+        padding: 1rem 0;
 
         &::before {
             content: "!";
