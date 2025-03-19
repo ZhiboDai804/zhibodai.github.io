@@ -1,0 +1,48 @@
+baseURL = "https://zhibodai.github.io"
+languageCode = "en-us"
+title = "Z h i b o  Dai"
+copyright = "Zhibo Dai"
+theme = "vortisil"
+pagination.pagerSize = 9
+hasCJKLanguage = true
+enableEmoji = true
+disableKinds = ["taxonomy","term"] # DO NOT MODIFY
+
+[params]
+    author = "Zhibo Dai" # Author name of the article.
+    logoImg = false # If false, the site title will display.
+    logoInvert = true # If the image logo needs to be turned on Image Colour Inversion.
+    math = true
+
+[params.meta]
+    description = "Researcher in Computational Fluid Dynamics (CFD) and Machine Learning" # Site description
+  
+[[menus.main]]
+    identifier = "home"
+    url = "/"
+    weight = 1
+
+[[menus.main]]
+    identifier = "about"
+    url = "/about"
+    weight = 2
+
+[[menus.main]]
+    identifier = "archives"
+    url = "/posts"
+    weight = 3
+
+[module]
+    [module.hugoVersion]
+        extended = true
+        min = "0.116.0"
+
+[markup]
+    [markup.highlight]
+        style = "evergarden"
+        tabWidth = 4
+        codeFences = true
+        guessSyntax = true
+
+[outputs]
+    home = ["HTML", "JSON"]
