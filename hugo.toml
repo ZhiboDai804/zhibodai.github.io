@@ -1,6 +1,6 @@
 baseURL = "https://zhibodai804.github.io"
 languageCode = "en" # <html lang> ==> data/l10n.toml
-title = "Z h i b o" # Website Title
+title = "zhì bó" # Website Title
 copyright = "Zhibo Dai" # Footer copyright.
 theme = "vortisil"
 pagination.pagerSize = 9
@@ -15,7 +15,7 @@ disableKinds = ["taxonomy","term"] # DO NOT MODIFY
     math = true
 
 [params.meta]
-    description = "A fast, minimal and restrained Hugo theme." # Site description
+    description = "Zhibo Dai's personal wabpage" # Site description
   
 [[menus.main]]
     identifier = "home"

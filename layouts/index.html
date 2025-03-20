@@ -8,6 +8,11 @@
 
 </section>
 
+<!-- 添加 .Content 来渲染 content/_index.md 的内容 -->
+<section class="custom-content">
+    {{ .Content }}
+</section>
+
 <section class="posts" id="posts">
 
     <div class="section-title">{{ index $.Site.Data.l10n "posts" }}</div>
