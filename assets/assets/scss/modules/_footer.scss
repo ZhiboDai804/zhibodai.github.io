@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.86rem;
+    margin-top: auto;
+    padding: 4rem 0 2rem 0;
+    justify-content: space-between;
+
+    @media (max-width:720px) {
+        flex-direction: column;
+
+        span {
+            margin: 0 auto;
+        }
+    }
+}

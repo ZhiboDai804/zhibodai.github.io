@@ -1,0 +1,5 @@
+{{ if eq .Kind "page" | and (in .CurrentSection.Path "posts") }}
+<div class="backtotop">
+    <div id="back-to-top" onclick="scrollToTop()">Back To Top</div>
+</div>
+{{ end }}

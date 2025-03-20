@@ -1,0 +1,35 @@
+{{ define "main" }}
+
+{{ with .Params.cover }}
+<section class="cover" id="cover">
+  <img src="{{ . }}" alt="Cover Image" class="cover-image" loading="lazy">
+</section>
+{{ end }}
+
+<h1>{{ .Title }}</h1>
+
+<div class="article-tag">
+  {{ if eq .Section "posts" }}
+  {{ $datePostMachine := .Date | time.Format "2006-01-02T15:04:05" }}
+  {{ $datePostHuman := .Date | time.Format "2006-01-02" }}
+  <time datetime="{{ $datePostMachine }}">{{ index $.Site.Data.l10n "posted_on" }} {{ $datePostHuman }}&nbsp;,&nbsp;</time>
+  {{ with .Params.lastmodified }}
+  {{ $dateLastmodMachine := . | time.Format "2006-01-02T15:04:05" }}
+  {{ $dateLastmodHuman := . | time.Format "2006-01-02" }}
+  <time datetime="{{ $dateLastmodMachine }}">{{ index $.Site.Data.l10n "last_modified" }} {{ $dateLastmodHuman }}&nbsp;,&nbsp;</time>
+  {{ end }}
+  <span class="article-author">{{ index $.Site.Data.l10n "by" }}&nbsp;{{ or .Params.author .Site.Params.author }}</span>
+  {{ else }}
+  {{ end }}
+</div>
+
+{{ .Content }}
+
+<div class="article-license">
+  {{ with .Params.license }}
+  {{ $dynamicContent := safeHTML (printf (index $.Site.Data.l10n "license") $.Params.license_url) }}
+  {{ $renderedContent := replace $dynamicContent "__license__" . }}
+  <span>{{ $renderedContent | safeHTML }}.</span>
+  {{ end }}
+</div>
+{{ end }}

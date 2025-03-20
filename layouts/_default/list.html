@@ -1,0 +1,22 @@
+{{ define "main"}}
+<div class="posts">
+  {{ $pages := where .Site.RegularPages "Type" "posts" }}
+  {{ $grouped := $pages.GroupByDate "2006" }}
+  {{ $paginator := .Paginate $grouped }}
+
+  <h1>{{ index $.Site.Data.l10n "archives" }} ({{ len $pages }})</h1>
+
+  {{ range $paginator.PageGroups }}
+  <h2>{{ .Key }}</h2>
+  <div class="posts-list">
+    {{ range .Pages }}
+    <div class="posts-item">
+      <div class="posts-date">{{ .Date | dateFormat "2006-01-02" }}</div>
+      <div class="posts-title" style="border-bottom: none;"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+  {{ partial "pagination.html" . }}
+</div>
+{{ end }}

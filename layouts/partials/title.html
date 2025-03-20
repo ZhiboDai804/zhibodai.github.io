@@ -1,0 +1,13 @@
+{{- if .IsHome -}}
+    {{ site.Title }}
+{{- else if eq .Kind "page" | and (in .CurrentSection.Path "posts") -}}
+    {{ .Title }} @ {{ site.Title }}
+{{- else if .IsSection | and (eq .Section "posts") -}}
+    {{ (index site.Data.l10n "archives") | default "Archives" }} @ {{ site.Title }}
+{{- else if eq .RelPermalink "/about/" -}}
+    {{ (index site.Data.l10n "about") | default "About" }} @ {{ site.Title }}
+{{- else if eq .RelPermalink "/search/" -}}
+    {{ (index site.Data.l10n "search") | default "Search" }} @ {{ site.Title }}
+{{- else -}}
+    {{ (index site.Data.l10n "pagenotfound_title") | default "404" }} @ {{ site.Title }}
+{{- end -}}

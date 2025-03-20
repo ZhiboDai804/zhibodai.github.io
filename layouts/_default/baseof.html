@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html data-theme="{{ or site.Params.colortheme `light` }}" lang="{{ site.Language.LanguageCode }}"
+  dir="{{ or site.Language.LanguageDirection `ltr` }}">
+
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+<body>
+  {{ partial "header.html" . }}
+
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ partial "backtotop.html" . }}
+
+  {{ partial "footer.html" . }}
+
+  {{ with resources.Get "/assets/js/theme-toggle.js" }}
+    {{ if eq hugo.Environment "development" }}
+      {{ with . | js.Build }}
+      <script src="{{ .RelPermalink }}"></script>
+      {{ end }}
+    {{ else }}
+      {{ $opts := dict "minify" true }}
+      {{ with . | js.Build $opts | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</body>
+
+</html>

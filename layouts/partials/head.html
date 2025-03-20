@@ -1,0 +1,138 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="IE = edge, chrome = 1">
+
+<title>
+  {{ partial "title" . }}
+</title>
+{{ $description := (.Content | plainify | truncate 80 "…") | safeHTML }}
+<meta name="description" content="{{ or $description .Site.Params.meta.description }}">
+
+{{ hugo.Generator }}
+
+<link rel="canonical" href="{{ .Permalink  }}">
+
+<meta property="og:type" content="website">
+
+<meta property="og:locale" content="{{ site.Language.LanguageCode }}">
+<meta property="og:title" content='{{ partial "title" . }}'>
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:description" content="{{ or $description .Site.Params.meta.description }}">
+<meta property="og:url" content="{{ .Permalink  }}">
+{{ if .IsHome }}
+<meta property="og:image" content="/assets/imgs/hero.webp">
+<meta name="twitter:image" content="/assets/imgs/hero.webp">
+{{ else }}
+<meta property="og:image" content="{{ or .Params.Cover site.Params.defaultCover }}">
+<meta name="twitter:image" content="{{ or .Params.Cover site.Params.defaultCover }}">
+{{ end }}
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="shortcut icon" href="/assets/imgs/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/imgs/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/imgs/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/imgs/apple-touch-icon.png">
+
+{{ with resources.Get "/assets/scss/custom.scss" }}
+{{ if eq hugo.Environment "development" }}
+{{ with . | toCSS | minify }}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{ end }}
+{{ else }}
+{{ with . | toCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{ end }}
+{{ end }}
+{{ end }}
+
+{{ with resources.Get "/assets/scss/main.scss" }}
+{{ if eq hugo.Environment "development" }}
+{{ with . | toCSS | minify }}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{ end }}
+{{ else }}
+{{ with . | toCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{ end }}
+{{ end }}
+{{ end }}
+
+<script>
+  (function () {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  })();
+</script>
+
+{{ with .Site.Params.logoImg }}
+{{ else }}
+{{ $woff2 := resources.Get "/assets/fonts/Jicaleta-Regular.woff2" | fingerprint }}
+{{ $woff := resources.Get "/assets/fonts/Jicaleta-Regular.woff" | fingerprint }}
+<style>
+  @font-face {
+    font-family: 'jicaleta';
+    src: url('{{ $woff2.RelPermalink }}') format('woff2'),
+    url('{{ $woff.RelPermalink }}') format('woff');
+  }
+</style>
+{{ end }}
+
+{{ if eq .Kind "page" | and (in .CurrentSection.Path "posts") }}
+{{ $woff2 := resources.Get "/assets/fonts/FiraCode-Regular.woff2" | fingerprint }}
+{{ $woff := resources.Get "/assets/fonts/FiraCode-Regular.woff" | fingerprint }}
+<style>
+  @font-face {
+    font-family: 'Fira Code';
+    src: url('{{ $woff2.RelPermalink }}') format('woff2'),
+    url('{{ $woff.RelPermalink }}') format('woff');
+  }
+</style>
+{{ end }}
+
+{{ with resources.Get "/assets/js/main.js" }}
+{{ if eq hugo.Environment "development" }}
+{{ with . | js.Build }}
+<script src="{{ .RelPermalink }}"></script>
+{{ end }}
+{{ else }}
+{{ $opts := dict "minify" true }}
+{{ with . | js.Build $opts | fingerprint }}
+<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+{{ end }}
+{{ end }}
+{{ end }}
+
+{{ if eq .Layout "search" }}
+{{ with resources.Get "/assets/js/search.js" }}
+{{ if eq hugo.Environment "development" }}
+{{ with . | js.Build }}
+<script src="{{ .RelPermalink }}"></script>
+{{ end }}
+{{ else }}
+{{ $opts := dict "minify" true }}
+{{ with . | js.Build $opts | fingerprint }}
+<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+
+{{ if .Site.Params.math }}
+{{ if .Page.Params.math }}
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    options: {
+      enableMenu: false
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+{{ end }}
+{{ end }}
